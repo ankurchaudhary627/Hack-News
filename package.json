@@ -1,0 +1,30 @@
+{
+  "name": "hacknews-scripbox",
+  "version": "1.0.0",
+  "description": "Hack-news app built with MERN stack",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankurchaudhary627/Hack-News.git"
+  },
+  "author": "Ankur Chaudhary",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ankurchaudhary627/Hack-News/issues"
+  },
+  "homepage": "https://github.com/ankurchaudhary627/Hack-News#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.3.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.0",
+    "mongoose": "^5.10.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
