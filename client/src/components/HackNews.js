@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { Popover, Modal, Button, Card, Table, Tag } from "antd";
+import { Popover, Modal, Button, Card, Table, Tag, Space } from "antd";
 import {
   ArrowUpOutlined,
   PoweroffOutlined,
@@ -189,7 +189,7 @@ const HackNews = (props) => {
   return (
     <div className="hackNews">
       <center>
-        <Card title={<h2>Hack-News</h2>} style={{ width: "max-width" }}>
+        <Card title={<h2>Hack-News</h2>}>
           {addChallenge ? (
             <AddChallenge
               visible={addChallenge}
@@ -197,23 +197,28 @@ const HackNews = (props) => {
               createdBy={loggedinEmpid}
             />
           ) : null}
-          <Button
-            type="primary"
-            icon={<PlusOutlined />}
-            style={{ marginRight: 16, marginBottom: 16 }}
-            onClick={() => setaddChallenge(true)}
-          >
-            Add challenge
-          </Button>
-          <Popover content="Logout">
+          <Space>
             <Button
               type="primary"
-              danger
+              icon={<PlusOutlined />}
               style={{ marginRight: 16, marginBottom: 16 }}
-              icon={<PoweroffOutlined />}
-              onClick={() => logout()}
-            />
-          </Popover>
+              onClick={() => setaddChallenge(true)}
+            >
+              Add challenge
+            </Button>
+            <Button type="dashed" style={{ marginRight: 16, marginBottom: 16 }}>
+              Welcome: {loggedinEmpid}
+            </Button>
+            <Popover content="Logout">
+              <Button
+                type="primary"
+                danger
+                style={{ marginRight: 16, marginBottom: 16 }}
+                icon={<PoweroffOutlined />}
+                onClick={() => logout()}
+              />
+            </Popover>
+          </Space>
           <Table
             columns={columns}
             dataSource={challenges}
