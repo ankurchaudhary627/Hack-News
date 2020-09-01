@@ -29,7 +29,7 @@ const Signup = (props) => {
           } else {
             onChange(processedEmpid, history);
             await new Promise((resolve) => setTimeout(resolve, 2000));
-            message.success("Success.");
+            message.success("Success");
           }
         })
         .catch((err) => console.log(err));
@@ -48,7 +48,7 @@ const Signup = (props) => {
 
   return (
     <center>
-      <Card style={{ width: 500 }}>
+      <Card>
         <Form>
           <Form.Item label="Employee ID">
             <Input

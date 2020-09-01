@@ -8,7 +8,9 @@ const Challenge = require("../../models/Challenge");
 // @desc   Get all challenges
 // @access Public
 router.get("/getAll", (req, res) => {
-  Challenge.find().then((challenges) => res.json(challenges));
+  Challenge.find()
+    .sort({ createdOn: -1 })
+    .then((challenges) => res.json(challenges));
 });
 
 // @route  POST api/challenges/add
@@ -50,9 +52,7 @@ router.post("/update/:id", (req, res) => {
         { new: true }
       ).then((updatedChallenge) => res.json(updatedChallenge));
     } else {
-      res.status(404).json({
-        message: "Challenge not found!",
-      });
+      res.json(null);
     }
   });
 });

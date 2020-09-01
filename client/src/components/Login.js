@@ -29,7 +29,7 @@ const Login = (props) => {
           } else {
             onChange(processedEmpid, history);
             await new Promise((resolve) => setTimeout(resolve, 2000));
-            message.success("Success.");
+            message.success("Success");
           }
         })
         .catch((err) => console.log(err));
@@ -48,7 +48,7 @@ const Login = (props) => {
 
   return (
     <center>
-      <Card style={{ width: 500 }}>
+      <Card>
         <Input
           size="large"
           placeholder="Employee id: HN-1"
