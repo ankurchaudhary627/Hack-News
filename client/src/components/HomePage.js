@@ -7,10 +7,6 @@ import "../css/style.css";
 
 const { TabPane } = Tabs;
 
-const onTabChange = (key) => {
-  console.log("tab key", key);
-};
-
 const HomePage = (props) => {
   const { onChange } = props;
   return (

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { Popover, Modal, Button, Card, Table, Tag, Spin } from "antd";
+import { Popover, Modal, Button, Card, Table, Tag } from "antd";
 import {
   ArrowUpOutlined,
   PoweroffOutlined,
@@ -38,6 +38,8 @@ const getColor = (tag) => {
       return "orange";
     case "AUTOMATION":
       return "purple";
+    default:
+      return "";
   }
 };
 
@@ -175,7 +177,6 @@ const HackNews = (props) => {
 
   useEffect(() => {
     fetchData();
-    setloading(false);
   }, []);
 
   useEffect(() => {
@@ -199,6 +200,7 @@ const HackNews = (props) => {
           <Button
             type="primary"
             icon={<PlusOutlined />}
+            style={{ marginRight: 16, marginBottom: 16 }}
             onClick={() => setaddChallenge(true)}
           >
             Add challenge
@@ -207,6 +209,7 @@ const HackNews = (props) => {
             <Button
               type="primary"
               danger
+              style={{ marginRight: 16, marginBottom: 16 }}
               icon={<PoweroffOutlined />}
               onClick={() => logout()}
             />
