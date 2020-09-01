@@ -30,9 +30,7 @@ router.post("/add", (req, res) => {
       });
       newChallenge.save().then((challenge) => res.json(challenge));
     } else {
-      res.status(303).json({
-        message: "Challenge already exists!",
-      });
+      res.json(null);
     }
   });
 });

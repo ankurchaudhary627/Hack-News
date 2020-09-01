@@ -9,3 +9,15 @@
   margin-bottom: 2rem;
   width: 84%;
 }
+
+.hackNews {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}

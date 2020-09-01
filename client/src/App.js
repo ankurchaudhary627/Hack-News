@@ -36,7 +36,9 @@ const App = () => {
       />
       <Route
         path="/loggedin"
-        render={() => <HackNews loggedinEmpid={loggedinEmpid} />}
+        render={() => (
+          <HackNews loggedinEmpid={loggedinEmpid} onChange={handleChange} />
+        )}
       />
     </BrowserRouter>
   );

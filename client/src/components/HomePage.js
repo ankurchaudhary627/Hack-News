@@ -15,7 +15,7 @@ const HomePage = (props) => {
   const { onChange } = props;
   return (
     <div className="homepage">
-      <Card title="Hack-News" style={{ width: 500 }}>
+      <Card title={<h2>Hack-News</h2>} style={{ width: 500 }}>
         <Tabs defaultActiveKey="login" size="large" centered>
           <TabPane tab="Login" key="login">
             <Login onChange={onChange} />

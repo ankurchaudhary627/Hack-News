@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { Modal, Button, Card, Table, Tag, Spin, Alert } from "antd";
-import { ArrowUpOutlined } from "@ant-design/icons";
+import { Popover, Modal, Button, Card, Table, Tag, Spin } from "antd";
+import {
+  ArrowUpOutlined,
+  PoweroffOutlined,
+  PlusOutlined,
+} from "@ant-design/icons";
+import AddChallenge from "./AddChallenge";
 import axios from "axios";
 
 const formatDate = (date) => {
@@ -62,9 +67,9 @@ const processData = (challenges) => {
 };
 
 const HackNews = (props) => {
-  const { loggedinEmpid } = props;
+  const { loggedinEmpid, onChange } = props;
   const [challenges, setchallenges] = useState([]);
-  const [loading, setloading] = useState(true);
+  const [addChallenge, setaddChallenge] = useState(false);
 
   const history = useHistory();
   const columns = [
@@ -132,6 +137,14 @@ const HackNews = (props) => {
     },
   ];
 
+  const logout = () => {
+    onChange("", history);
+  };
+
+  const handleClose = () => {
+    setaddChallenge(false);
+  };
+
   const fetchData = async () => {
     axios.get("challenges/getAll").then((res) => {
       setchallenges(processData(res.data));
@@ -173,19 +186,36 @@ const HackNews = (props) => {
     history.push("/");
   }
   return (
-    <div>
+    <div className="hackNews">
       <center>
-        <h1>Welcome to hackNews {loggedinEmpid}</h1>
-        <Card style={{ width: "max-width" }}>
-          {loading ? (
-            <Spin tip="Loading challenges ..." />
-          ) : (
-            <Table
-              columns={columns}
-              dataSource={challenges}
-              pagination={{ pageSize: 10 }}
+        <Card title={<h2>Hack-News</h2>} style={{ width: "max-width" }}>
+          {addChallenge ? (
+            <AddChallenge
+              visible={addChallenge}
+              onClose={handleClose}
+              createdBy={loggedinEmpid}
             />
-          )}
+          ) : null}
+          <Button
+            type="primary"
+            icon={<PlusOutlined />}
+            onClick={() => setaddChallenge(true)}
+          >
+            Add challenge
+          </Button>
+          <Popover content="Logout">
+            <Button
+              type="primary"
+              danger
+              icon={<PoweroffOutlined />}
+              onClick={() => logout()}
+            />
+          </Popover>
+          <Table
+            columns={columns}
+            dataSource={challenges}
+            pagination={{ pageSize: 10 }}
+          />
         </Card>
       </center>
     </div>
