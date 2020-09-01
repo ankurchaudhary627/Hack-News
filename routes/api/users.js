@@ -11,16 +11,13 @@ router.get("/getAll", (req, res) => {
   User.find().then((users) => res.json(users));
 });
 
-// @route  GET api/users/getByID
+// @route  POST api/users/getByID
 // @desc   Get user by id
 // @access Public
-router.get("/getById", (req, res) => {
+router.post("/getById", (req, res) => {
   User.findOne({ empId: req.body.empId }).then((user) => {
     if (user === null) {
-      res.status(404).json({
-        message: "User doesn't exists!",
-        empId: null,
-      });
+      res.json(null);
     } else {
       res.json(user);
     }
@@ -38,10 +35,7 @@ router.post("/add", (req, res) => {
       });
       newUser.save().then((user) => res.json(user));
     } else {
-      res.status(303).json({
-        message: "User already exists!",
-        empId: null,
-      });
+      res.json(null);
     }
   });
 });
