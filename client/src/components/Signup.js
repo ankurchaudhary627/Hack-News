@@ -19,7 +19,7 @@ const Signup = (props) => {
       // call api to signup employee here
       setloading(true);
       await axios
-        .post("/users/add", {
+        .post("/api/users/add", {
           empId: processedEmpid,
         })
         .then(async (res) => {

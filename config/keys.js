@@ -1,4 +1,3 @@
 module.exports = {
-  mongoURI:
-    "mongodb+srv://test01:Ci7sPF0VZOMjzxxs@hack-news.0jgof.mongodb.net/HackNewsDb?retryWrites=true&w=majority",
+  mongoURI: `mongodb+srv://test01:${process.env.MONGODB_USER_KEY}@hack-news.0jgof.mongodb.net/HackNewsDb?retryWrites=true&w=majority`,
 };

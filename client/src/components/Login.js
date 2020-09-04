@@ -19,7 +19,7 @@ const Login = (props) => {
       // call api to validate employee here
       setloading(true);
       await axios
-        .post("/users/getById", {
+        .post("/api/users/getById", {
           empId: processedEmpid,
         })
         .then(async (res) => {

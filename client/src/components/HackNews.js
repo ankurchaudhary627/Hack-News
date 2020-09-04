@@ -148,13 +148,13 @@ const HackNews = (props) => {
   };
 
   const fetchData = async () => {
-    axios.get("challenges/getAll").then((res) => {
+    axios.get("/api/challenges/getAll").then((res) => {
       setchallenges(processData(res.data));
     });
   };
 
   const updateVotes = (challenge) => {
-    axios.post(`challenges/update/${challenge.key}`).then((res) => {
+    axios.post(`/api/challenges/update/${challenge.key}`).then((res) => {
       if (res.data) {
         const index = challenge.index;
         var updatedObj = res.data;

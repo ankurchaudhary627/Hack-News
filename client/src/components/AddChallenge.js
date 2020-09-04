@@ -45,7 +45,7 @@ const AddChallenge = (props) => {
       // call api to add challenge here
       setconfirmLoading(true);
       await axios
-        .post("/challenges/add", {
+        .post("/api/challenges/add", {
           title: title,
           description: description,
           tags: tags,
