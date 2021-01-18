@@ -28,3 +28,5 @@ MERN stack application.
  6. From this directory, run `npm run dev` to run both client and server concurrently without the need to run them separately in different terminals.
 
 ### App loads [here](http://localhost:3000/)
+
+### You can also play with the app [here](http://vast-temple-74594.herokuapp.com/)
